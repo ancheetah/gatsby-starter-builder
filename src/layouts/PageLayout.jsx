@@ -19,10 +19,10 @@ const useStyles = makeStyles(them => ({
 const query = graphql`
   query {
     allBuilderModels {
-      header(limit: 1, options: { cachebust: true }) {
+      header(limit: 1) {
         content
       }
-      footer(limit: 1, options: { cachebust: true }) {
+      footer(limit: 1) {
         content
       }
     }
@@ -37,7 +37,7 @@ function PageLayout({ children }) {
     (async function fetchContent() {
       const announcementContent = await builder
         .get('announcement-bar', {
-          cachebust: true
+          cacheSeconds: 120
         })
         .toPromise()
       setAnnouncement(announcementContent)
