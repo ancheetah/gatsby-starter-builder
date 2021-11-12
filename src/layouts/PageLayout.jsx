@@ -10,7 +10,6 @@ const useStyles = makeStyles(them => ({
   root: {
     padding: `0 ${theme.spacing(1)}`
   },
-  announcementBar: {},
   header: {},
   footer: {},
   content: {}
@@ -37,7 +36,7 @@ function PageLayout({ children }) {
     (async function fetchContent() {
       const announcementContent = await builder
         .get('announcement-bar', {
-          cachebust: true
+          cacheSeconds: 120
         })
         .toPromise()
       setAnnouncement(announcementContent)
