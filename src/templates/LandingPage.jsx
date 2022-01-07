@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { BuilderComponent } from '@builder.io/react';
+import { BuilderComponent, BuilderContent } from '@builder.io/react';
 import { Helmet } from 'react-helmet';
 import Link from '../components/Link/Link';
 
@@ -24,11 +24,18 @@ function LandingPageTemplate({ data }) {
         />
       </Helmet>
       {/** name of the model is landing page, change it if you decided to build*/}
-      <BuilderComponent
-        renderLink={Link}
-        name="landing-page"
-        content={landingPage}
-      />
+      <BuilderContent content={landingPage} model="landing-page">
+        {(data) => {
+          console.log("my data: ", data, "my content: ", landingPage);
+          return(
+            <BuilderComponent
+              renderLink={Link}
+              name="landing-page"
+              content={landingPage}
+            />
+          );
+        }}
+      </BuilderContent>
     </>
   );
 }
