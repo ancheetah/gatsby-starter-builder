@@ -28,7 +28,8 @@ module.exports = {
         templates: {
           // Render every `landingPage` model as a new page using the 
           // src/templates/LandingPage.jsx template based on the URL provided in Builder.io
-          landingPage: path.resolve('src/templates/LandingPage.jsx')
+          landingPage: path.resolve('src/templates/LandingPage.jsx'),
+          blogArticlePage: path.resolve('src/templates/BlogArticle.jsx')
         }
       }
     }
