@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { BuilderComponent } from '@builder.io/react';
 import { Helmet } from 'react-helmet';
 import Link from '../components/Link/Link';
+import '../components/BlogHeader/BlogHeader.builder';
 
 const defaultDescription = 'This is a blog article';
 
