@@ -47,7 +47,7 @@ function BlogArticleTemplate({ data }) {
           }
         />
       </Helmet>
-
+      <h1>Blog Article Page Model</h1>
       <BuilderComponent
         renderLink={Link}
         name="blog-article-page"

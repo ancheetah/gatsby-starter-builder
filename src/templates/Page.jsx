@@ -8,9 +8,9 @@ const defaultDescription = 'Edit this in your entry for a better SEO';
 
 const defaultTitle = 'Builder: Drag and Drop Page Building for Any Site';
 
-function LandingPageTemplate({ data }) {
+function PageTemplate({ data }) {
   const models = data?.allBuilderModels;
-  const landingPage = models.landingPage[0]?.content;
+  const landingPage = models.page[0]?.content;
 
   return (
     <>
@@ -24,22 +24,22 @@ function LandingPageTemplate({ data }) {
         />
       </Helmet>
       {/** name of the model is landing page, change it if you decided to build*/}
-      <h1>Landing Page Model</h1>
+      <h1>Page Model</h1>
       <BuilderComponent
         renderLink={Link}
-        name="landing-page"
+        name="page"
         content={landingPage}
       />
     </>
   );
 }
 
-export default LandingPageTemplate;
+export default PageTemplate;
 
-export const landingPageQuery = graphql`
+export const pageQuery = graphql`
   query($path: String!) {
     allBuilderModels {
-      landingPage(
+      page(
         target: { urlPath: $path }
         limit: 1
         options: { cachebust: true }
