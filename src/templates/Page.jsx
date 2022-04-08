@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { BuilderComponent } from '@builder.io/react';
+import { Builder, BuilderComponent } from '@builder.io/react';
 import { Helmet } from 'react-helmet';
 import Link from '../components/Link/Link';
-
+import {FourOhFour} from '../pages/404';
 const defaultDescription = 'Edit this in your entry for a better SEO';
 
 const defaultTitle = 'Builder: Drag and Drop Page Building for Any Site';
@@ -12,6 +12,14 @@ function PageTemplate({ data }) {
   const models = data?.allBuilderModels;
   const landingPage = models.page[0]?.content;
 
+  if (!Builder.isEditing && !Builder.isPreviewing && !landingPage) {
+    return (
+      <div>
+        <h1>Page</h1>
+        <FourOhFour modelName="page"/>
+      </div>
+    );
+  }
   return (
     <>
       <Helmet>

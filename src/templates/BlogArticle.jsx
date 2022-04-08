@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { BuilderComponent, Builder, Image } from '@builder.io/react';
 import { Helmet } from 'react-helmet';
 import Link from '../components/Link/Link';
+import {FourOhFour} from '../pages/404';
 
 const defaultDescription = 'This is a blog article';
 const defaultTitle = 'Blog Article Title';
@@ -35,6 +36,15 @@ function BlogArticleTemplate({ data }) {
       },
     ]
   });
+
+  if (!Builder.isEditing && !Builder.isPreviewing && !article) {
+    return (
+      <div>
+        <h1>Blog Article</h1>
+        <FourOhFour modelName="blog-article-page"/>
+      </div>
+    );
+  }
 
   return (
     <>
