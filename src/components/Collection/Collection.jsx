@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Filters } from './Filters';
 import { CollectionList } from './CollectionList';
-import leftCaret from '../../assets/leftCaret.svg';
+// import leftCaret from '../../assets/leftCaret.svg';
 
 
 export const Collection = props => {
@@ -47,7 +47,7 @@ export const Collection = props => {
       <div className="container">
         <p className="Collection__breadcrumbs"> <a ref={breadcrumbLink} href="/">{location}</a> / {name}</p>
 
-        <a className="Collection__backLink" href="/" ref={backLink}><img src={leftCaret}></img>&nbsp;Back to store</a>
+        <a className="Collection__backLink" href="/" ref={backLink}>&lt;&nbsp;Back to store</a>
         <h6>VIEW ALL CATEGORIES</h6>
 
         <Filters location={location} width={width} links={links} />

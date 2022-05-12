@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DownCaret from '../../assets/DownCaret.svg';
+// import DownCaret from '../../assets/DownCaret.svg';
 
 export const Filters = props => {
   const { links, width, location } = props;
@@ -31,7 +31,8 @@ export const Filters = props => {
       :
       <div className="Collection__filters-dropdown-container">
         <div className="Collection__filters-dropdown-container-caret">
-          <img src={DownCaret}></img>
+          {/* <img src={DownCaret}></img> */}
+          ^
         </div>
         <label htmlFor="filters" hidden></label>
         <select
