@@ -9,6 +9,7 @@ export const Hero = props => {
   const {
     image,
     title,
+    refField,
     parallaxStrength,
     buttonLink,
     buttonText,
@@ -29,6 +30,7 @@ export const Hero = props => {
         paddingTop={`calc(${height}px/3)`}
       >
         <Typography variant="h2">{title}</Typography>
+        <div>{JSON.stringify(refField)}</div>
         <Button
           style={{ color: darkMode ? 'gray' : 'white' }}
           variant="outlined"

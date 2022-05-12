@@ -13,6 +13,10 @@ Builder.registerComponent(Hero, {
       defaultValue: 'Your Title Here'
     },
     {
+      name: 'refField',
+      type: 'reference',
+    },
+    {
       name: 'image',
       type: 'file',
       allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
