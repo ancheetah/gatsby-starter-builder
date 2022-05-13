@@ -25,11 +25,11 @@ Builder.registerComponent(Collection, {
       type: 'string',
       defaultValue: 'Visit us in-store to see our full selection.'
     },
-    {
-      name: 'products',
-      type: 'reference',
-      model: 'collection-data'
-    },
+    // {
+    //   name: 'products',
+    //   type: 'reference',
+    //   model: 'collection-data'
+    // },
     {
       name: 'links',
       type: 'list',
@@ -37,7 +37,7 @@ Builder.registerComponent(Collection, {
         {
           name: 'link',
           type: 'reference',
-          model: 'collection-data'
+          model: 'links'
         }
       ]
     }

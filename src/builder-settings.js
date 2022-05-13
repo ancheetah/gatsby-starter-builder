@@ -6,5 +6,6 @@ import '@builder.io/widgets';
  * https://www.builder.io/c/docs/custom-react-components
  */
 import './components/Hero/Hero.builder';
+import './components/Collection/Collection.builder';
 import config from './config';
 builder.init(config.builderAPIKey);
