@@ -11,7 +11,7 @@ const defaultTitle = 'Builder: Drag and Drop Page Building for Any Site';
 function LandingPageTemplate({ data }) {
   const models = data?.allBuilderModels;
   const landingPage = models.landingPage[0]?.content;
-
+  console.log('landing page: ', landingPage);
   return (
     <>
       <Helmet>
@@ -27,6 +27,7 @@ function LandingPageTemplate({ data }) {
       <BuilderComponent
         renderLink={Link}
         name="landing-page"
+        options={{ includeRefs: true }}
         content={landingPage}
       />
     </>
@@ -41,7 +42,7 @@ export const landingPageQuery = graphql`
       landingPage(
         target: { urlPath: $path }
         limit: 1
-        options: { cachebust: true }
+        options: { cachebust: true, includeRefs: true }
       ) {
         content
       }

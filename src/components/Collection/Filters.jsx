@@ -5,6 +5,8 @@ export const Filters = props => {
   const { links, width, location } = props;
   const [currPath, setCurrPath] = useState('');
 
+  console.log("links 1:", JSON.stringify(links));
+
   useEffect(() => {
     setCurrPath(window.location.pathname);
   }, []);
@@ -18,7 +20,8 @@ export const Filters = props => {
             const name = val?.link?.value?.data?.name
             const isProductPageLink = val?.link?.value?.data?.isProductPageLink
             const linkPath = '/' + currPath?.split('/')[1] + url
-
+            console.log('linkPath A: ', linkPath, 'name A: ', name, 'location: ', location, 'boolean', isProductPageLink);
+            console.log("val 2:", JSON.stringify(val));
 
             return (
               <li className="Collection__filters-item" key={index}>
@@ -47,6 +50,9 @@ export const Filters = props => {
               const name = val?.link?.value?.data?.name
               const isProductPageLink = val?.link?.value?.data?.isProductPageLink
               const linkPath = '/' + currPath?.split('/')[1] + url
+              console.log('linkPath B: ', linkPath, 'name B: ', name, 'location: ', location)
+              console.log("val 3:", JSON.stringify(val));
+
               return (
                 <option key={index} selected={currPath === linkPath} value={isProductPageLink ? url : linkPath}>{name} {location}</option>
               )
