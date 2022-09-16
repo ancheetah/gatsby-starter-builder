@@ -28,11 +28,14 @@ function LandingPageTemplate({ data }) {
         {(data) => {
           console.log("my data: ", data, "my content: ", landingPage);
           return(
-            <BuilderComponent
-              renderLink={Link}
-              name="landing-page"
-              content={landingPage}
-            />
+            <>
+              <h1>Using Landing Page Template</h1>
+              <BuilderComponent
+                renderLink={Link}
+                name="landing-page"
+                content={landingPage}
+              />
+            </>
           );
         }}
       </BuilderContent>
@@ -47,7 +50,8 @@ export const landingPageQuery = graphql`
     allBuilderModels {
       landingPage(
         target: { urlPath: $path }
-        limit: 1
+        limit: 1,
+        options: {cachebust: true},
       ) {
         content
       }

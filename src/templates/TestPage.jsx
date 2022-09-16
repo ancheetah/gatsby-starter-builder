@@ -28,11 +28,14 @@ function TestPageTemplate({ data }) {
         {(data) => {
           console.log("my data: ", data, "my content: ", testPage);
           return(
-            <BuilderComponent
-              renderLink={Link}
-              name="test-page"
-              content={testPage}
-            />
+            <>
+              <h1>Using Test Page Template</h1>
+                <BuilderComponent
+                  renderLink={Link}
+                  name="test-page"
+                  content={testPage}
+                />
+            </>
           );
         }}
       </BuilderContent>
@@ -47,7 +50,8 @@ export const testPageQuery = graphql`
     allBuilderModels {
       testPage(
         target: { urlPath: $path }
-        limit: 1
+        limit: 1,
+        options: {cachebust: true},
       ) {
         content
       }
