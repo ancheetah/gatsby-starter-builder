@@ -8,7 +8,7 @@
     "@builder.io/widgets": "^1.2.23",
     "@material-ui/core": "^4.9.7",
     "gatsby": "^2.13.31",
-    "gatsby-plugin-material-ui": "^2.1.6",
+    "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.0.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
