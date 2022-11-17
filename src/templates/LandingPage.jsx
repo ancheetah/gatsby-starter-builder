@@ -51,7 +51,7 @@ export const landingPageQuery = graphql`
       landingPage(
         target: { urlPath: $path }
         limit: 1,
-        options: {cachebust: false},
+        options: {cachebust: true},
       ) {
         content
       }
