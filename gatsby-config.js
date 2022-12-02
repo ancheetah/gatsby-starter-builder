@@ -8,7 +8,6 @@ module.exports = {
       'This repo contains an example website that is built with Builder.io, and generate with Gatsby'
   },
   plugins: [
-    'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-material-ui',
       // If you want to use styled components you should change the injection order.
@@ -28,7 +27,7 @@ module.exports = {
         templates: {
           // Render every `landingPage` model as a new page using the
           // src/templates/LandingPage.jsx template based on the URL provided in Builder.io
-          landingPage: path.resolve('src/templates/LandingPage.jsx')
+          page: path.resolve('src/templates/LandingPage.jsx')
         }
       }
     }
