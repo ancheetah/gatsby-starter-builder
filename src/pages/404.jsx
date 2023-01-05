@@ -11,7 +11,7 @@ const Dev404 = () => {
     <NotFound /> // Your 404 content
   ) : (
     <BuilderComponent
-      model="page"
+      model="landing-page"
       contentLoaded={(content) => {
         if (!content) {
           setNotFound(true);
