@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { BuilderComponent, BuilderContent } from '@builder.io/react';
+import { BuilderComponent, BuilderContent, useIsPreviewing } from '@builder.io/react';
 import { Helmet } from 'react-helmet';
 import Link from '../components/Link/Link';
 
@@ -8,9 +8,10 @@ const defaultDescription = 'Edit this in your entry for a better SEO';
 
 const defaultTitle = 'Builder: Drag and Drop Page Building for Any Site';
 
-function TestPageTemplate({ data }) {
+function TestPageTemplate({ data, setNotFound }) {
   const models = data?.allBuilderModels;
-  const testPage = models.testPage[0]?.content;
+  const testPage = models?.testPage[0]?.content;
+  const isPreviewing = useIsPreviewing();
 
   return (
     <>
@@ -30,11 +31,28 @@ function TestPageTemplate({ data }) {
           return(
             <>
               <h1>Using Test Page Template</h1>
+              { 
+              testPage ? 
+                <BuilderComponent
+                    renderLink={Link}
+                    name="test-page"
+                    content={testPage}
+                />
+              :
                 <BuilderComponent
                   renderLink={Link}
                   name="test-page"
-                  content={testPage}
-                />
+                  contentLoaded={(content) => {
+                    if (!content && !isPreviewing) {
+                      setNotFound(true);
+                    }
+                  }}
+                >
+                <div className="loading">
+                    No matching page generated, checking Builder.io ...
+                </div>
+                </BuilderComponent>
+            }
             </>
           );
         }}

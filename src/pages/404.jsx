@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { BuilderComponent, builder } from '@builder.io/react';
+import { builder } from '@builder.io/react';
 import '@builder.io/widgets';
+import LandingPageTemplate from '../templates/LandingPage';
+import TestPageTemplate from '../templates/TestPage';
 
 // TODO: enter your public API key
 builder.init('59bb518773c14842921abe05d5e2bee3');
@@ -12,18 +14,9 @@ const Dev404 = () => {
   return notFound ? (
     <NotFound /> // Your 404 content
   ) : (
-    <BuilderComponent
-      model={currentModel}
-      contentLoaded={(content) => {
-        if (!content) {
-          setNotFound(true);
-        }
-      }}
-    >
-      <div className="loading">
-        No matching page generated, checking Builder.io ...
-      </div>
-    </BuilderComponent>
+    currentModel === 'test-page' ? 
+    <TestPageTemplate setNotFound={setNotFound}/> 
+    : <LandingPageTemplate  setNotFound={setNotFound}/>
   );
 };
 
