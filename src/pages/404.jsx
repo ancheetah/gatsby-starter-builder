@@ -7,11 +7,13 @@ builder.init('59bb518773c14842921abe05d5e2bee3');
 
 const Dev404 = () => {
   const [notFound, setNotFound] = React.useState(false);
+  const currentModel = builder.editingModel;
+  
   return notFound ? (
     <NotFound /> // Your 404 content
   ) : (
     <BuilderComponent
-      model="landing-page"
+      model={currentModel}
       contentLoaded={(content) => {
         if (!content) {
           setNotFound(true);
