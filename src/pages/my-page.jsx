@@ -1,5 +1,6 @@
 import { BuilderComponent } from '@builder.io/react'
 import React from 'react'
+import { graphql } from 'gatsby'
 
 const MyPage = ({data}) => {
     // const myContent = data.allBuilderModels.figure[0].content;
